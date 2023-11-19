@@ -5,6 +5,7 @@ import {Route, Routes, BrowserRouter} from 'react-router-dom'
 
 import './index.css';
 import Home from './components/Home';
+import Support from './components/Support';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/suport" element={<Support />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
