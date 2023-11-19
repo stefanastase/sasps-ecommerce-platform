@@ -5,6 +5,7 @@ import {Route, Routes, BrowserRouter} from 'react-router-dom'
 
 import './index.css';
 import Home from './components/Home';
+import Products from './components/Products';
 import Support from './components/Support';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,6 +16,13 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/suport" element={<Support />} />
+        <Route path="/telefoane" element={Products("Telefoane")} />
+        <Route path="/tablete" element={Products("Tablete")} />
+        <Route path="/laptop" element={Products("Laptop")} />
+        <Route path="/desktop" element={Products("Desktop")} />
+        <Route path="/tv" element={Products("TV")} />
+        <Route path="/audio" element={Products("Audio")} />
+        <Route path="/foto" element={Products("Foto")} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

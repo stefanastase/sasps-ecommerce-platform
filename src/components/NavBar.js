@@ -35,32 +35,84 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   }));
-  
-const productCategories = [
-{
-    name: "Telefoane, Tablete",
-    icon: <SmartphoneIcon/>,
-},
-{
-    name: "Laptop, Desktop",
-    icon: <LaptopIcon/>
-},
-{
-    name: "TV, Audio, Foto",
-    icon: <TvIcon/>
-}
-];
+
+
 
 function NavBar() {
 
     const theme = useTheme();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [productsExpanded, setProductsExpanded] = useState(false);
-  
-    const handleProductsExpand = () => { setProductsExpanded(!productsExpanded) };
     const handleDrawerOpen = () => { setDrawerOpen(true) };
     const handleDrawerClose = () => { setDrawerOpen(false) };
     let drawerWidth = 300;
+
+
+    const [productsExpanded, setProductsExpanded] = useState(false);
+    const handleProductsExpand = () => { setProductsExpanded(!productsExpanded) };
+
+    const [phoneTabletsExpanded, setPhoneTabletsExpanded] = useState(false);
+    const handlePhoneTabletsExpand = () => { setPhoneTabletsExpanded(!phoneTabletsExpanded) };
+
+    const [laptopDesktopExpanded, setLaptopDesktopExpanded] = useState(false);
+    const handleLaptopDesktopExpanded = () => { setLaptopDesktopExpanded(!laptopDesktopExpanded) };
+
+    const [tvAudioPhotoExpanded, setTvAudioPhotoExpanded] = useState(false);
+    const handleTvAudioPhotoExpanded = () => { setTvAudioPhotoExpanded(!tvAudioPhotoExpanded) };
+
+    const productCategories = [
+        {
+            name: "Telefoane, Tablete",
+            icon: <SmartphoneIcon/>,
+            subcategories: [
+                {
+                    name: "Telefoane",
+                    href: "/telefoane",
+                },
+                {
+                    name: "Tablete",
+                    href: "/tablete"
+                }
+            ],
+            expanded: phoneTabletsExpanded,
+            handleExpand: handlePhoneTabletsExpand
+        },
+        {
+            name: "Laptop, Desktop",
+            icon: <LaptopIcon/>,
+            subcategories: [
+                {
+                    name: "Laptop",
+                    href: "/laptop",
+                },
+                {
+                    name: "Desktop",
+                    href: "/desktop"
+                }
+            ],
+            expanded: laptopDesktopExpanded,
+            handleExpand: handleLaptopDesktopExpanded
+        },
+        {
+            name: "TV, Audio, Foto",
+            icon: <TvIcon/>,
+            subcategories: [
+                {
+                    name: "TV",
+                    href: "/tv",
+                },
+                {
+                    name: "Audio",
+                    href: "/audio"
+                },
+                {
+                    name: "Foto",
+                    href: "/foto"
+                }
+            ],
+            expanded: tvAudioPhotoExpanded,
+            handleExpand: handleTvAudioPhotoExpanded
+        }
+    ];
 
     return (
         <>
@@ -130,16 +182,33 @@ function NavBar() {
                 </ListItemButton>
                 </ListItem>
                 <Collapse in={productsExpanded} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    {productCategories.map((item) => (
-                    <ListItemButton sx={{ pl: 4 }}>
-                        <ListItemIcon>
-                        {item.icon}
-                        </ListItemIcon>
-                        <ListItemText primary={item.name} />
-                    </ListItemButton>
-                    ))}
-                </List>
+                    <List component="div" disablePadding>
+                        {productCategories.map((item) => (
+                            <>
+                            <ListItem>
+                                <ListItemButton sx={{ pl: 4 }} onClick={ item.handleExpand }>
+                                    <ListItemIcon>
+                                    {item.icon}
+                                    </ListItemIcon>
+                                    <ListItemText primary={item.name} />
+                                    {item.expanded ? <ExpandLess /> : <ExpandMore />}
+                                </ListItemButton>
+                            </ListItem>
+                            <Collapse in={item.expanded} timeout="auto" unmountOnExit>
+                                <List component="div" disablePadding>
+                                    {item.subcategories.map((subcategory) => (
+                                        <ListItem>
+                                            <ListItemButton sx={{ pl: 4 }} href={subcategory.href}>
+                                                <ListItemText primary={subcategory.name} />
+                                            </ListItemButton>
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Collapse>
+                            </>
+
+                        ))}
+                    </List>
                 </Collapse>
                 <ListItem key="Suport clienti" disablePadding>
                 <ListItemButton href="/suport">
