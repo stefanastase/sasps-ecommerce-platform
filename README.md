@@ -1,6 +1,20 @@
-# Goal (romanian language)
+# Goal (Romanian language)
 
 Crearea unei platforme de comert electronic (eCommerce) precum Amazon.com, eMag etc., folosind o arhitectura serverless. Pentru a respecta aceasta arhitectura, partea de frontend a aplicatiei va fi implementata folosind biblioteca React.js, iar codul va fi distribuit catre clienti folosind un Content Delivery Network si va rula in broswer-ul acestora. Pentru a obtine cotinut de la partea de backend a aplicatiei, componenta de frontend va comunica cu cea de backend intr-un mod RESTful. Logica componentei de backend va fi executata folosind serivicul serverless AWS Lambda, ce va fi expus catre componenta frontend folosind un serviciu de tip API Gateway. Ca surse de date ale aplicatiei, vom folosi o baza de date NoSQL, precum AWS DynamoDB, pentru a stoca datele despre produsele disponibile pe platforma; si un serviciu de stocare Cloud, precum AWS Simple Storage Service (S3), pentru a stoca asset-urile statice ale platformei (fisiere CSS, imagini, fisiere JS etc).
+
+# Changelog (Romanian language)
+# Milestone 2
+Pentru acest milestone am pregatit componenta frontend a aplicatiei folosind React si biblioteca Materials UI.
+
+ADAUGARI:
+- Creare aplicatie folosind create-react-app
+- Instalare React Router pentru a putea naviga paginile aplicatiei
+- Bara de navigatie interactiva pe paginile aplicatiei.
+- Pagina principala a aplicatiei.
+- Pagina de "Suport clienti" a aplicatiei, unde clientii pot trimite un formular.
+- Categorii produse in bara de navigatie.
+- Pagina template pentru generarea paginii fiecarei categorii de produse.
+- Fisier de date in format JSON ce contine produsele disponibile. (Acest fisier va fi inlocuit cu un serviciu de baze de date in viitor).
 
 # Getting Started with Create React App
 
