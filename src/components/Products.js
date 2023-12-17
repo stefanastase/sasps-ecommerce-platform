@@ -11,11 +11,22 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import productData from '../data/products.json'
+import { getBasket } from "../utils";
 
 function Products(category) {
     // TODO: Query DB for items
     const products = productData[category.toLowerCase()];
-    
+
+    const addToBasket = (item) => {
+        const basket = getBasket();
+        try {
+          basket.addItem({name: `${category.toLowerCase()}-${item.name}`, price: item.price});
+        }
+        catch (err) {
+          alert(err.message)
+        }
+    }
+
     return (
     <>
     <NavBar />
@@ -62,11 +73,11 @@ function Products(category) {
                       Rating: {product.rating}
                     </Typography>
                     <Typography variant="h6" component="p">
-                      {product.price}
+                      {product.price} RON
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Adauga in cos</Button>
+                    <Button size="small" onClick={() => {addToBasket({name: product.id, price: product.price})}}>Adauga in cos</Button>
                   </CardActions>
                 </Card>
               </Grid>

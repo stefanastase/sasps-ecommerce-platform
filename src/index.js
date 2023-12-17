@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import {Route, Routes, BrowserRouter} from 'react-router-dom'
 
 import './index.css';
+import Basket from './components/Basket';
 import Home from './components/Home';
 import Products from './components/Products';
 import Support from './components/Support';
@@ -15,6 +16,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/basket" element={<Basket />} />
         <Route path="/suport" element={<Support />} />
         <Route path="/telefoane" element={Products("Telefoane")} />
         <Route path="/tablete" element={Products("Tablete")} />

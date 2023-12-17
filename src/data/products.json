@@ -1,42 +1,47 @@
 {
     "telefoane": [
         {
+            "id": "iph15",
             "name": "Apple iPhone 15",
             "status": "in stoc",
             "rating": 4.65,
-            "price": "4999 RON",
+            "price": 5000,
             "img": "https://m.media-amazon.com/images/I/61eEYLATF9L._AC_SL1500_.jpg"
         },
         {
+            "id": "galaxy23",
             "name": "Samsung Galaxy S23",
             "status": "in stoc",
             "rating": 4.33,
-            "price": "3999 RON",
+            "price": 4000,
             "img": "https://m.media-amazon.com/images/I/519nePwnpIL._AC_SL1500_.jpg"
         },
         {
+            "id": "pixel7",
             "name": "Google Pixel 7",
             "status": "stoc limitat",
             "rating": 3.80,
-            "price": "2499 RON",
+            "price": 2500,
             "img": "https://m.media-amazon.com/images/I/71LMIjtTcSL._AC_SL1500_.jpg"
         }
     ],
     "tablete": [
         {
+            "id": "ipad109",
             "name": "Apple 2022 10,9\" iPad",
             "status": "in stoc",
             "rating": 4.11,
-            "price": "2999 RON",
+            "price": 3000,
             "img": "https://m.media-amazon.com/images/I/61KBSU8baPL._AC_SL1500_.jpg"
         }
     ],
     "laptop": [
         {
+            "id": "mbp14",
             "name": "Apple 2023 MacBook Pro 14.2\"",
             "status": "pre-comanda",
             "rating": "-",
-            "price": "13999 RON",
+            "price": 14000,
             "img": "https://m.media-amazon.com/images/I/61RnQM+JDTL._AC_SL1500_.jpg"
         }
     ],

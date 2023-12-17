@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import * as utils from '../utils'
 
 import AppBar from '@mui/material/AppBar';
 import Collapse from '@mui/material/Collapse';
+import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -37,16 +39,54 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   }));
 
 
+function ShoppingCart() {
+    const theme = useTheme();
+    const drawerWidth = 400;
+    return (
+        <Drawer
+        sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={true}
+        >
+        <DrawerHeader>
+            {/* <Typography>eStore</Typography> */}
+            <IconButton>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+            <ListItem key="Pagina principala" disablePadding>
+            <ListItemButton href="/">
+                <ListItemIcon>
+                <HomeIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Pagina principala"/>
+            </ListItemButton>
+            </ListItem>
+        </List>
+        
+    </Drawer>
+    )
+}
+
 
 function NavBar() {
-
     const theme = useTheme();
     const [drawerOpen, setDrawerOpen] = useState(false);
     const handleDrawerOpen = () => { setDrawerOpen(true) };
     const handleDrawerClose = () => { setDrawerOpen(false) };
     let drawerWidth = 300;
 
-
+    const basket = utils.getBasket();
     const [productsExpanded, setProductsExpanded] = useState(false);
     const handleProductsExpand = () => { setProductsExpanded(!productsExpanded) };
 
@@ -128,18 +168,19 @@ function NavBar() {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Link href="/" variant="h6" color="inherit" underline="none" sx={{ flexGrow: 1 }}>
-                    eStore
-                </Link>
+                <Box sx={{ flexGrow: 1 }}>
+                    <Link href="/"  variant="h6" color="inherit" underline="none">eStore</Link>
+                </Box>
                 <div>
                     <IconButton
-                    size="large"
+                    size="small"
                     color="inherit"
                     edge="end"
                     aria-label="shopping-cart"
+                    href="/basket"
                     >
                     <ShoppingCartIcon />
-                    </IconButton>         
+                    </IconButton> 
                 </div>
             </Toolbar>
         </AppBar>
