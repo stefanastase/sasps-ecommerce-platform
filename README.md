@@ -4,7 +4,7 @@ Crearea unei platforme de comert electronic (eCommerce) precum Amazon.com, eMag 
 
 # Changelog (Romanian language)
 # Milestone 2
-Pentru acest milestone am pregatit componenta frontend a aplicatiei folosind React si biblioteca Materials UI.
+Pentru acest milestone am pregatit componenta frontend a aplicatiei folosind React si biblioteca Material UI.
 
 ADAUGARI:
 - Creare aplicatie folosind create-react-app
