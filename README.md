@@ -1,8 +1,17 @@
 # Goal (Romanian language)
 
+# Changelog (Romanian language)
+# Milestone 3
+Pentru acest milestone am terminat implementarea componentei frontend, am început implementarea componentei backend si am început paper-ul aferent proiectului.
+
+## Updates
+Adaugarea paginii pentru cosul de cumparaturi
+Implementare mecanism persistenta cos de cumparaturi
+Adaugare apeluri catre componenta de backend
+Configurarea functiei Lambda ce gestioneaza comenzile plasate
+Redactarea primei jumatati ale documentului aferent proiectului.
 Crearea unei platforme de comert electronic (eCommerce) precum Amazon.com, eMag etc., folosind o arhitectura serverless. Pentru a respecta aceasta arhitectura, partea de frontend a aplicatiei va fi implementata folosind biblioteca React.js, iar codul va fi distribuit catre clienti folosind un Content Delivery Network si va rula in broswer-ul acestora. Pentru a obtine cotinut de la partea de backend a aplicatiei, componenta de frontend va comunica cu cea de backend intr-un mod RESTful. Logica componentei de backend va fi executata folosind serivicul serverless AWS Lambda, ce va fi expus catre componenta frontend folosind un serviciu de tip API Gateway. Ca surse de date ale aplicatiei, vom folosi o baza de date NoSQL, precum AWS DynamoDB, pentru a stoca datele despre produsele disponibile pe platforma; si un serviciu de stocare Cloud, precum AWS Simple Storage Service (S3), pentru a stoca asset-urile statice ale platformei (fisiere CSS, imagini, fisiere JS etc).
 
-# Changelog (Romanian language)
 # Milestone 2
 Pentru acest milestone am pregatit componenta frontend a aplicatiei folosind React si biblioteca Material UI.
 
